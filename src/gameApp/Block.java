@@ -30,7 +30,7 @@ public class Block extends Rectangle {
 
         // Asign the picture to the actual location
         try {
-            pic = ImageIO.read(new File(s));
+            pic = ImageIO.read(new File("src/"+s));
         } catch (IOException e) {
             e.printStackTrace();
         }
