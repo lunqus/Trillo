@@ -18,8 +18,9 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
     }
 
     public void update() {
+
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
 

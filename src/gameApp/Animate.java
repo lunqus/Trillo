@@ -9,6 +9,11 @@ public class Animate implements Runnable{
     public void run() {
         while(true) {
             blockBreaker.update();
+            try {
+                Thread.sleep(10);
+            } catch(InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
     }
