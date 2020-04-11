@@ -11,9 +11,6 @@ public class Block extends Rectangle {
     Image pic;        // Declare Image for Block
     boolean destroyed;  // Block destroyer
 
-    int posX, posY;
-    int width, height;
-
     /***
      *
      * @param x - corner coordinate X of the block
@@ -23,10 +20,11 @@ public class Block extends Rectangle {
      * @param s - location of the image
      */
     public Block(int x, int y, int w, int h, String s) {
-        posX = x;
-        posY = y;
-        width = w;
-        height = h;
+        // Rectange already has x, y, width & heigth variables
+        this.x = x;
+        this.y = y;
+        this.width = w;
+        this.height = h;
 
         // Asign the picture to the actual location
         try {
@@ -39,6 +37,6 @@ public class Block extends Rectangle {
     public void draw(Graphics g, Component c) {
 
         if (!destroyed) // gonna draw the block if it's not destroyed
-            g.drawImage(pic,posX,posY,width,height,c);
+            g.drawImage(pic,x,y,width,height,c);
     }
 }
