@@ -15,12 +15,27 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
 
     BlockBreakerPanel() {
 
+        // Implementing blocks
+        for (int i = 0; i < 8; i++) {
+            blocks.add(new Block((i*60+2), 0, 60, 25, "blue.png"));
+        }
+        for (int i = 0; i < 8; i++) {
+            blocks.add(new Block((i*60+2), 25, 60, 25, "green.png"));
+        }for (int i = 0; i < 8; i++) {
+            blocks.add(new Block((i*60+2), 50, 60, 25, "yellow.png"));
+        }for (int i = 0; i < 8; i++) {
+            blocks.add(new Block((i*60+2), 75, 60, 25, "red.png"));
+        }
+
         addKeyListener(this); // Add this class as a key listener
         setFocusable(true);     // Gonna facus on the component
     }
 
     // Imolement running Thread
     public void paintComponent(Graphics g) {
+        blocks.forEach(block -> {
+            block.draw(g, this);
+        });
         paddle.draw(g, this);
     }
 
