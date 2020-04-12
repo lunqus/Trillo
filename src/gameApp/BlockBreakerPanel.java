@@ -44,7 +44,22 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
         this.mainFrame = frame;
         this.startScreen = startScreen;
 
-       reset();
+        reset();
+
+
+        thread = new Thread(() -> {
+            while(true) {
+                update();
+                try {
+                    Thread.sleep(10);
+                } catch(InterruptedException err) {
+                    err.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
+
     }
 
     // Imolement running Thread
@@ -93,20 +108,6 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        // Gonna run the Thread
-        if(e.getKeyCode() == KeyEvent.VK_ENTER) {
-            thread = new Thread(() -> {
-                while(true) {
-                    update();
-                    try {
-                        Thread.sleep(10);
-                    } catch(InterruptedException err) {
-                        err.printStackTrace();
-                    }
-                }
-            });
-                    thread.start();
-        }
 
         if(e.getKeyCode() == KeyEvent.VK_RIGHT && paddle.x < (getWidth() - paddle.width)) {
             paddle.x += 15;
