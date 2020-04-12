@@ -36,10 +36,22 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
         blocks.forEach(block -> {
             block.draw(g, this);
         });
+        ball.draw(g, this);
         paddle.draw(g, this);
     }
 
     public void update() {
+
+        ball.x += ball.movX;
+        ball.y += ball.movY;
+
+        // Implementing ball to move horizontally
+        if(ball.x > (getWidth() - 25) || ball.x < 0)
+            ball.movX *= -1;
+        // Implementing ball to move vertically
+        if(ball.y < 0 || ball.intersects(paddle))
+            ball.movY *= -1;
+
         repaint();
     }
 

@@ -8,8 +8,10 @@ import java.io.InputStream;
 
 public class Block extends Rectangle {
 
-    Image pic;        // Declare Image for Block
+    Image pic;          // Declare Image for Block
     boolean destroyed;  // Block destroyer
+
+    int movX, movY;     // Adding moving coordinates variables
 
     /***
      *
@@ -25,6 +27,9 @@ public class Block extends Rectangle {
         this.y = y;
         this.width = w;
         this.height = h;
+
+        movX = 3;
+        movY = 3;
 
         // Asign the picture to the actual location
         try {
