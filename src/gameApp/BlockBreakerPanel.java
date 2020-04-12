@@ -25,7 +25,7 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
     }
 
     public void update() {
-
+        repaint();
     }
 
     @Override
@@ -47,6 +47,13 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
                     }
                 }
             }).start();
+        }
+
+        if(e.getKeyCode() == KeyEvent.VK_RIGHT && paddle.x < (getWidth() - paddle.width)) {
+            paddle.x += 15;
+        }
+        if(e.getKeyCode() == KeyEvent.VK_LEFT && paddle.x > 0) {
+            paddle.x -= 15;
         }
     }
 
