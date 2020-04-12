@@ -52,6 +52,13 @@ public class BlockBreakerPanel extends JPanel implements KeyListener {
         if(ball.y < 0 || ball.intersects(paddle))
             ball.movY *= -1;
 
+        blocks.forEach(block -> {
+            if(ball.intersects(block) && !block.destroyed) {
+                ball.movY *= -1;
+                block.destroyed = true;
+            }
+        });
+
         repaint();
     }
 
